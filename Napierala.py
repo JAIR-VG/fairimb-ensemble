@@ -1,9 +1,5 @@
 import numpy as np
 
-
-
-
-
 def mydist2(vctr, mtrx):
     return np.linalg.norm(mtrx-vctr,axis=1)
 
