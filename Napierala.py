@@ -13,18 +13,24 @@ def load_dataset(nfile):
     return np.asarray(df[:,0:-1],dtype=float), np.asarray(df[:,-1],dtype=int)
 
 
-single_point = [3, 4]
-points = np.arange(20).reshape((10,2))
+#single_point = [3, 4]
+#points = np.arange(20).reshape((10,2))
 
 
-b = mydist2(single_point,points)
-print(b)
+#b = mydist2(single_point,points)
+#print(b)
 
-knnids=b.argsort()[:5]
-print(knnids)
+#knnids=b.argsort()[:5]
+#print(knnids)
 
 X,y = load_dataset('prueba.prn')
 
-print(X)
-print(X.shape)
+#print(X)
+#print(X.shape)
+print(X[0,:])
+distancia = mydist2(X[0,:],X[1:,:])
+print(distancia)
+print(distancia.shape)
+
+
 
