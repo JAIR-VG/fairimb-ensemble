@@ -14,6 +14,9 @@ def get_indxknn(dstnc,k):
 def get_labels(ylabel,indx):
     return(ylabel[indx])
 
+def get_uniquelabels(ylabel):
+    return np.unique(ylabel)
+
 
 #single_point = [3, 4]
 #points = np.arange(20).reshape((10,2))
@@ -34,8 +37,10 @@ distancia = mydist2(X[0,:],X[1:,:])
 #print(distancia)
 print(distancia.shape)
 
-print(get_indxknn(distancia,5))
-print(y[get_indxknn(distancia,5)])
-print(get_labels(y,get_indxknn(distancia,5)))
+print(get_indxknn(distancia,7))
+print(y[get_indxknn(distancia,7)])
+print(get_labels(y,get_indxknn(distancia,7)))
+
+print(np.unique(get_labels(y,get_indxknn(distancia,7))))
 
 
