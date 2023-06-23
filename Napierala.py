@@ -17,6 +17,10 @@ def get_labels(ylabel,indx):
 def get_uniquelabels(ylabel):
     return np.unique(ylabel)
 
+def count_labels(zlabel,ylabel):
+    for x in zlabel:
+        print((ylabel==zlabel[x]).sum())
+
 
 #single_point = [3, 4]
 #points = np.arange(20).reshape((10,2))
@@ -39,8 +43,11 @@ print(distancia.shape)
 
 print(get_indxknn(distancia,7))
 print(y[get_indxknn(distancia,7)])
-print(get_labels(y,get_indxknn(distancia,7)))
+yetiquetas= get_labels(y,get_indxknn(distancia,7))
+print(yetiquetas)
+zetiquetas = get_uniquelabels(y)
+print(zetiquetas)
 
-print(np.unique(get_labels(y,get_indxknn(distancia,7))))
+count_labels(zetiquetas,yetiquetas)
 
 
