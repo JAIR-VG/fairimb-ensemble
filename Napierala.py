@@ -21,33 +21,33 @@ def count_labels(zlabel,ylabel):
     for x in zlabel:
         print((ylabel==zlabel[x]).sum())
 
+def count_label(thelabel,ylabel):
+    return (ylabel==thelabel).sum()
 
-#single_point = [3, 4]
-#points = np.arange(20).reshape((10,2))
+def kind_sample(xvector, yvector,xmatrix,ymatrix,kvalue):
+    distancia = mydist2(xvector,xmatrix)
+    indx_k = get_indxknn(distancia,kvalue)
+    klabels = get_labels(ymatrix,indx_k)
+    numknn = count_label(yvector,klabels)
+    if (numknn/kvalue) >= 0.8:
+        print('Safe')
+    else:
+        if (numknn/kvalue) >= 0.4:
+            print('Borderline')
+        else:
+            if (numknn/kvalue) >= 0.2:
+                print('Rare')
+            else:
+                print('Outlier')
 
-
-#b = mydist2(single_point,points)
-#print(b)
-
-#knnids=b.argsort()[:5]
-#print(knnids)
 
 X,y = load_dataset('prueba.prn')
 
-#print(X)
-#print(X.shape)
-print(X[0,:])
-distancia = mydist2(X[0,:],X[1:,:])
-#print(distancia)
-print(distancia.shape)
-
-print(get_indxknn(distancia,7))
-print(y[get_indxknn(distancia,7)])
-yetiquetas= get_labels(y,get_indxknn(distancia,7))
-print(yetiquetas)
-zetiquetas = get_uniquelabels(y)
-print(zetiquetas)
-
-count_labels(zetiquetas,yetiquetas)
 
 
+for i in range(len(y)):
+    xv = X[i,:]
+    yv = y[i]
+    xm =np.delete(X,i,0)
+    ym = np.delete(y,i)
+    kind_sample(xv,yv,xm,ym,5)
