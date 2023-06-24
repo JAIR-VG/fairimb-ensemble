@@ -30,24 +30,38 @@ def kind_sample(xvector, yvector,xmatrix,ymatrix,kvalue):
     klabels = get_labels(ymatrix,indx_k)
     numknn = count_label(yvector,klabels)
     if (numknn/kvalue) >= 0.8:
-        print('Safe')
+       return 0
     else:
         if (numknn/kvalue) >= 0.4:
-            print('Borderline')
+            return 1
         else:
             if (numknn/kvalue) >= 0.2:
-                print('Rare')
+                return 2
             else:
-                print('Outlier')
+                return 3
 
 
 X,y = load_dataset('prueba.prn')
 
 
+typeclass0=[]
+typeclass1=[]
+
+labelsdataset=get_uniquelabels(y)
 
 for i in range(len(y)):
     xv = X[i,:]
     yv = y[i]
     xm =np.delete(X,i,0)
     ym = np.delete(y,i)
-    kind_sample(xv,yv,xm,ym,5)
+    if (yv == labelsdataset[0]):
+        typeclass0.append(kind_sample(xv,yv,xm,ym,5))
+    else:
+        typeclass1.append(kind_sample(xv,yv,xm,ym,5))
+
+print(typeclass0)
+print(len(typeclass0))
+print(typeclass1)
+print(len(typeclass1))
+
+print((np.array(typeclass1) == 3).sum())
