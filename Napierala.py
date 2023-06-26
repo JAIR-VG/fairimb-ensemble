@@ -1,4 +1,5 @@
 import numpy as np
+import pickle
 
 def mydist2(vctr, mtrx):
     return np.linalg.norm(mtrx-vctr,axis=1)
@@ -59,9 +60,37 @@ for i in range(len(y)):
     else:
         typeclass1.append(kind_sample(xv,yv,xm,ym,5))
 
-print(typeclass0)
-print(len(typeclass0))
-print(typeclass1)
-print(len(typeclass1))
 
-print((np.array(typeclass1) == 3).sum())
+ksample=[]
+
+ksample.append((np.array(typeclass0) == 0).sum())
+ksample.append((np.array(typeclass0) == 1).sum())
+ksample.append((np.array(typeclass0) == 2).sum())
+ksample.append((np.array(typeclass0) == 3).sum())
+ksample.append(len(typeclass0))
+print(ksample)
+
+ksample.append(ksample[0]/ksample[4])
+ksample.append(ksample[1]/ksample[4])
+ksample.append(ksample[2]/ksample[4])
+ksample.append(ksample[3]/ksample[4])
+
+ksample.append((np.array(typeclass1) == 0).sum())
+ksample.append((np.array(typeclass1) == 1).sum())
+ksample.append((np.array(typeclass1) == 2).sum())
+ksample.append((np.array(typeclass1) == 3).sum())
+ksample.append(len(typeclass1))
+
+print(ksample)
+
+ksample.append(ksample[9]/ksample[13])
+ksample.append(ksample[10]/ksample[13])
+ksample.append(ksample[11]/ksample[13])
+ksample.append(ksample[12]/ksample[13])
+print(ksample)
+
+textfile = open("items.txt", "a")
+for element in ksample:
+    textfile.write(str(element) + " ")
+textfile.write("\n")    
+textfile.close()
