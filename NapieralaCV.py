@@ -1,5 +1,5 @@
 import numpy as np
-import pickle
+import os
 
 def mydist2(vctr, mtrx):
     return np.linalg.norm(mtrx-vctr,axis=1)
@@ -42,55 +42,88 @@ def kind_sample(xvector, yvector,xmatrix,ymatrix,kvalue):
                 return 3
 
 
-X,y = load_dataset('prueba.prn')
+
+fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03subcl5-600-5-60-bi',
+        '03subcl5-600-5-70-bi', '04clover5z-600-5-0-bi', '04clover5z-600-5-30-bi', '04clover5z-600-5-50-bi', 
+        '04clover5z-600-5-60-bi', '04clover5z-600-5-70-bi', 'paw02a-600-5-0-bi', 'paw02a-600-5-30-bi',
+        'paw02a-600-5-50-bi', 'paw02a-600-5-60-bi', 'paw02a-600-5-70-bi', '03subcl5-800-7-0-bi', 
+        '03subcl5-800-7-30-bi', '03subcl5-800-7-50-bi', '03subcl5-800-7-60-bi', '03subcl5-800-7-70-bi', 
+        '04clover5z-800-7-0-bi', '04clover5z-800-7-30-bi', '04clover5z-800-7-50-bi', '04clover5z-800-7-60-bi', 
+        '04clover5z-800-7-70-bi', 'paw02a-800-7-0-bi', 'paw02a-800-7-30-bi', 'paw02a-800-7-50-bi', 
+        'paw02a-800-7-60-bi', 'paw02a-800-7-70-bi']
+
+nfolds=5
+
+for element in fname:
+    print(element)
+
+    ficherotxt = 'datasets/'+element+'-'+str(nfolds)+'dobscv-tra.txt'
+    if os.path.exists(ficherotxt):
+        os.remove(ficherotxt)
+
+    textfile = open(ficherotxt, "a")
+
+    for folds in range(1,(nfolds+1)):
+        fichero = 'datasets/'+element+'/'+element+'-'+str(nfolds)+'dobscv-'+str(folds)+'tra.prn'
+        print(fichero)
+        
+        X,y = load_dataset(fichero)
+        
+        typeclass0=[]
+        typeclass1=[]
+
+        labelsdataset=get_uniquelabels(y)
+
+        for i in range(len(y)):
+            xv = X[i,:]
+            yv = y[i]
+            xm =np.delete(X,i,0)
+            ym = np.delete(y,i)
+            if (yv == labelsdataset[0]):
+                typeclass0.append(kind_sample(xv,yv,xm,ym,5))
+            else:
+                typeclass1.append(kind_sample(xv,yv,xm,ym,5))
+
+        ksample=[]
+
+        ksample.append((np.array(typeclass0) == 0).sum())
+        ksample.append((np.array(typeclass0) == 1).sum())
+        ksample.append((np.array(typeclass0) == 2).sum())
+        ksample.append((np.array(typeclass0) == 3).sum())
+        ksample.append(len(typeclass0))
+        #print(ksample)
+
+        ksample.append(ksample[0]/ksample[4])
+        ksample.append(ksample[1]/ksample[4])
+        ksample.append(ksample[2]/ksample[4])
+        ksample.append(ksample[3]/ksample[4])
+
+        ksample.append((np.array(typeclass1) == 0).sum())
+        ksample.append((np.array(typeclass1) == 1).sum())
+        ksample.append((np.array(typeclass1) == 2).sum())
+        ksample.append((np.array(typeclass1) == 3).sum())
+        ksample.append(len(typeclass1))
+
+        #print(ksample)
+
+        ksample.append(ksample[9]/ksample[13])
+        ksample.append(ksample[10]/ksample[13])
+        ksample.append(ksample[11]/ksample[13])
+        ksample.append(ksample[12]/ksample[13])
+        print(ksample)
+
+        for listelement in ksample:
+            textfile.write(str(listelement) + " ")
+        textfile.write("\n")
+    
+    textfile.close()
 
 
-typeclass0=[]
-typeclass1=[]
-
-labelsdataset=get_uniquelabels(y)
-
-for i in range(len(y)):
-    xv = X[i,:]
-    yv = y[i]
-    xm =np.delete(X,i,0)
-    ym = np.delete(y,i)
-    if (yv == labelsdataset[0]):
-        typeclass0.append(kind_sample(xv,yv,xm,ym,5))
-    else:
-        typeclass1.append(kind_sample(xv,yv,xm,ym,5))
 
 
-ksample=[]
 
-ksample.append((np.array(typeclass0) == 0).sum())
-ksample.append((np.array(typeclass0) == 1).sum())
-ksample.append((np.array(typeclass0) == 2).sum())
-ksample.append((np.array(typeclass0) == 3).sum())
-ksample.append(len(typeclass0))
-print(ksample)
-
-ksample.append(ksample[0]/ksample[4])
-ksample.append(ksample[1]/ksample[4])
-ksample.append(ksample[2]/ksample[4])
-ksample.append(ksample[3]/ksample[4])
-
-ksample.append((np.array(typeclass1) == 0).sum())
-ksample.append((np.array(typeclass1) == 1).sum())
-ksample.append((np.array(typeclass1) == 2).sum())
-ksample.append((np.array(typeclass1) == 3).sum())
-ksample.append(len(typeclass1))
-
-print(ksample)
-
-ksample.append(ksample[9]/ksample[13])
-ksample.append(ksample[10]/ksample[13])
-ksample.append(ksample[11]/ksample[13])
-ksample.append(ksample[12]/ksample[13])
-print(ksample)
-
-textfile = open("items.txt", "a")
-for element in ksample:
-    textfile.write(str(element) + " ")
-textfile.write("\n")    
-textfile.close()
+#textfile = open("items.txt", "a")
+#for element in ksample:
+#    textfile.write(str(element) + " ")
+#textfile.write("\n")    
+#textfile.close()

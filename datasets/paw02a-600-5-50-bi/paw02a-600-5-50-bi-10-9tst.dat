@@ -1,0 +1,67 @@
+@relation /Users/vgarciaj/Software-2016-05-17/dist/.a/paw02a-600-5-50-bi/paw02a-600-5-50-bi
+@attribute a0 real [-63.0, 760.0]
+@attribute a1 real [67.0, 992.0]
+@attribute a2 {positive, negative}
+@inputs a0, a1
+@outputs a2
+@data
+358.0, 400.0, positive
+224.0, 622.0, positive
+347.0, 386.0, positive
+121.0, 552.0, positive
+433.0, 684.0, positive
+156.0, 540.0, positive
+140.0, 617.0, positive
+543.0, 880.0, negative
+203.0, 377.0, negative
+536.0, 793.0, negative
+449.0, 448.0, negative
+659.0, 749.0, negative
+216.0, 263.0, negative
+526.0, 414.0, negative
+547.0, 492.0, negative
+635.0, 333.0, negative
+182.0, 992.0, negative
+733.0, 878.0, negative
+150.0, 914.0, negative
+-16.0, 158.0, negative
+289.0, 806.0, negative
+414.0, 919.0, negative
+709.0, 480.0, negative
+105.0, 726.0, negative
+-2.0, 183.0, negative
+659.0, 547.0, negative
+609.0, 308.0, negative
+629.0, 968.0, negative
+142.0, 640.0, negative
+40.0, 623.0, negative
+-59.0, 289.0, negative
+466.0, 921.0, negative
+171.0, 910.0, negative
+400.0, 926.0, negative
+77.0, 138.0, negative
+652.0, 489.0, negative
+53.0, 652.0, negative
+264.0, 173.0, negative
+327.0, 84.0, negative
+4.0, 947.0, negative
+643.0, 301.0, negative
+629.0, 966.0, negative
+240.0, 127.0, negative
+245.0, 948.0, negative
+278.0, 156.0, negative
+670.0, 869.0, negative
+81.0, 751.0, negative
+106.0, 755.0, negative
+316.0, 366.0, positive
+502.0, 350.0, positive
+249.0, 410.0, positive
+353.0, 168.0, negative
+257.0, 359.0, negative
+286.0, 745.0, negative
+227.0, 232.0, negative
+166.0, 684.0, negative
+729.0, 71.0, negative
+548.0, 423.0, negative
+-44.0, 751.0, negative
+87.0, 288.0, negative

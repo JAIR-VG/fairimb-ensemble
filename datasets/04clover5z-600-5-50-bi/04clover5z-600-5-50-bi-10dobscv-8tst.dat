@@ -1,0 +1,67 @@
+@relation  04clover5z-600-5-50-BI-5-5tra
+@attribute a0 real[-573.0,533.0]
+@attribute a1 real[-412.0,413.0]
+@attribute a2{positive,negative}
+@inputs a0,a1
+@outputs a2
+@data
+-22.0, 265.0, positive
+-176.0, -268.0, positive
+-299.0, 79.0, positive
+32.0, -29.0, positive
+8.0, -255.0, positive
+218.0, -59.0, positive
+-139.0, 113.0, positive
+223.0, 96.0, positive
+-73.0, -47.0, positive
+-73.0, -144.0, positive
+-87.0, 52.0, negative
+-130.0, -69.0, negative
+-286.0, 343.0, negative
+200.0, 193.0, negative
+99.0, -193.0, negative
+-420.0, -36.0, negative
+73.0, 372.0, negative
+452.0, -133.0, negative
+420.0, -4.0, negative
+486.0, -29.0, negative
+-145.0, 114.0, negative
+-13.0, -322.0, negative
+-183.0, -264.0, negative
+-132.0, -317.0, negative
+-397.0, -317.0, negative
+356.0, 390.0, negative
+-454.0, -230.0, negative
+-511.0, -43.0, negative
+474.0, -356.0, negative
+-90.0, 367.0, negative
+280.0, -266.0, negative
+-426.0, 314.0, negative
+-228.0, -189.0, negative
+-208.0, -63.0, negative
+-480.0, -337.0, negative
+89.0, -396.0, negative
+-414.0, 210.0, negative
+81.0, 239.0, negative
+247.0, -94.0, negative
+-512.0, 377.0, negative
+-433.0, -107.0, negative
+-293.0, 124.0, negative
+46.0, -128.0, negative
+222.0, -267.0, negative
+405.0, -231.0, negative
+417.0, 362.0, negative
+-436.0, 182.0, negative
+528.0, 394.0, negative
+88.0, 251.0, negative
+229.0, -77.0, negative
+-311.0, 114.0, negative
+-351.0, -42.0, negative
+257.0, 118.0, negative
+-48.0, -48.0, negative
+285.0, 77.0, negative
+-481.0, 373.0, negative
+520.0, 317.0, negative
+396.0, 196.0, negative
+-212.0, 345.0, negative
+-205.0, 389.0, negative

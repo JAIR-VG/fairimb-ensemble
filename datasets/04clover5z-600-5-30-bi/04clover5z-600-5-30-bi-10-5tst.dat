@@ -1,0 +1,67 @@
+@relation /Users/vgarciaj/Software-2016-05-17/dist/.a/04clover5z-600-5-30-bi/04clover5z-600-5-30-bi
+@attribute a0 real [-573.0, 533.0]
+@attribute a1 real [-412.0, 413.0]
+@attribute a2 {positive, negative}
+@inputs a0, a1
+@outputs a2
+@data
+172.0, 85.0, positive
+52.0, 55.0, positive
+-27.0, 180.0, positive
+-109.0, 267.0, positive
+314.0, 193.0, positive
+223.0, 96.0, positive
+105.0, 24.0, positive
+-342.0, -12.0, positive
+-127.0, -196.0, positive
+164.0, 390.0, negative
+477.0, -71.0, negative
+-82.0, 73.0, negative
+-492.0, -87.0, negative
+520.0, -142.0, negative
+5.0, -169.0, negative
+330.0, 376.0, negative
+-90.0, 99.0, negative
+440.0, 345.0, negative
+465.0, -11.0, negative
+231.0, 235.0, negative
+87.0, 347.0, negative
+-516.0, 331.0, negative
+246.0, -32.0, negative
+-46.0, -358.0, negative
+-557.0, 360.0, negative
+305.0, -369.0, negative
+40.0, 152.0, negative
+-498.0, -86.0, negative
+-249.0, 349.0, negative
+-186.0, -348.0, negative
+86.0, -139.0, negative
+89.0, -299.0, negative
+-501.0, 246.0, negative
+465.0, 342.0, negative
+-185.0, 155.0, negative
+291.0, -7.0, negative
+-243.0, 84.0, negative
+68.0, 347.0, negative
+533.0, 54.0, negative
+498.0, 226.0, negative
+445.0, 358.0, negative
+1.0, 138.0, negative
+-134.0, 340.0, negative
+-478.0, -306.0, negative
+490.0, -408.0, negative
+-508.0, 233.0, negative
+-417.0, 266.0, negative
+-310.0, -162.0, negative
+-417.0, 336.0, negative
+353.0, -185.0, negative
+-96.0, -18.0, positive
+299.0, 5.0, negative
+-401.0, -147.0, negative
+208.0, -254.0, negative
+174.0, -220.0, negative
+34.0, 274.0, negative
+-226.0, -267.0, negative
+357.0, 391.0, negative
+392.0, -343.0, negative
+327.0, 54.0, negative

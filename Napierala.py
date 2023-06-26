@@ -1,5 +1,5 @@
 import numpy as np
-import pickle
+
 
 def mydist2(vctr, mtrx):
     return np.linalg.norm(mtrx-vctr,axis=1)

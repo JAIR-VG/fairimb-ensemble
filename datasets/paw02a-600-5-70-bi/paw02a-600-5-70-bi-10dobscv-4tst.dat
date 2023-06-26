@@ -1,0 +1,67 @@
+@relation  paw02a-600-5-70-BI-5-5tra
+@attribute a0 real[-63.0,760.0]
+@attribute a1 real[67.0,992.0]
+@attribute a2{positive,negative}
+@inputs a0,a1
+@outputs a2
+@data
+527.0, 363.0, positive
+234.0, 433.0, positive
+463.0, 778.0, positive
+556.0, 379.0, positive
+342.0, 463.0, positive
+604.0, 679.0, positive
+318.0, 627.0, positive
+175.0, 563.0, positive
+268.0, 309.0, positive
+509.0, 848.0, positive
+310.0, 677.0, negative
+139.0, 632.0, negative
+-9.0, 392.0, negative
+732.0, 915.0, negative
+434.0, 974.0, negative
+576.0, 616.0, negative
+346.0, 445.0, negative
+572.0, 231.0, negative
+345.0, 227.0, negative
+704.0, 558.0, negative
+410.0, 157.0, negative
+633.0, 538.0, negative
+103.0, 960.0, negative
+224.0, 139.0, negative
+316.0, 927.0, negative
+378.0, 514.0, negative
+7.0, 186.0, negative
+352.0, 769.0, negative
+171.0, 910.0, negative
+607.0, 743.0, negative
+68.0, 653.0, negative
+353.0, 168.0, negative
+228.0, 702.0, negative
+45.0, 549.0, negative
+-9.0, 805.0, negative
+534.0, 442.0, negative
+757.0, 940.0, negative
+642.0, 304.0, negative
+714.0, 200.0, negative
+52.0, 827.0, negative
+496.0, 561.0, negative
+691.0, 649.0, negative
+45.0, 881.0, negative
+735.0, 783.0, negative
+64.0, 364.0, negative
+656.0, 101.0, negative
+-63.0, 592.0, negative
+629.0, 968.0, negative
+111.0, 155.0, negative
+61.0, 100.0, negative
+521.0, 896.0, negative
+50.0, 488.0, negative
+310.0, 864.0, negative
+177.0, 317.0, negative
+470.0, 215.0, negative
+166.0, 684.0, negative
+690.0, 319.0, negative
+-2.0, 199.0, negative
+237.0, 609.0, negative
+127.0, 981.0, negative
