@@ -84,7 +84,7 @@ for elements in fname:
 
     for folds in range(1,(nfolds+1)):
         
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=rs+i)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=rs+folds)
         
 
         #Procesar el conjunto de entrenamiento
