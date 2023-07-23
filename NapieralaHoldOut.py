@@ -55,6 +55,8 @@ fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03
         'paw02a-800-7-60-bi', 'paw02a-800-7-70-bi']
 
 
+nfolds=5
+
 for elements in fname:
     print(elements)
 
@@ -68,112 +70,132 @@ for elements in fname:
 
     textfile = open(ficherotxt, "a")
 
+    ficherotxt2 = 'datasets/'+elements+'-8020-holdout-tst.txt'
+    if os.path.exists(ficherotxt2):
+        os.remove(ficherotxt2)
+
+    textfile2 = open(ficherotxt2, "a")
+
+
     X,y = load_dataset(fichero)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    typeclass0=[]
-    typeclass1=[]
+    rs = 42
 
-    labelsdataset=get_uniquelabels(y_train)
+    for folds in range(1,(nfolds+1)):
+        
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=rs+i)
+        
 
-    for i in range(len(y_train)):
-        xv = X_train[i,:]
-        yv = y_train[i]
-        xm =np.delete(X_train,i,0)
-        ym = np.delete(y_train,i)
-        if (yv == labelsdataset[0]):
-            typeclass0.append(kind_sample(xv,yv,xm,ym,5))
-        else:
-            typeclass1.append(kind_sample(xv,yv,xm,ym,5))
+        #Procesar el conjunto de entrenamiento
+        typeclass0=[]
+        typeclass1=[]
 
-    ksample=[]
+        labelsdataset=get_uniquelabels(y_train)
 
-    ksample.append((np.array(typeclass0) == 0).sum())
-    ksample.append((np.array(typeclass0) == 1).sum())
-    ksample.append((np.array(typeclass0) == 2).sum())
-    ksample.append((np.array(typeclass0) == 3).sum())
-    ksample.append(len(typeclass0))
+        for i in range(len(y_train)):
+            xv = X_train[i,:]
+            yv = y_train[i]
+            xm =np.delete(X_train,i,0)
+            ym = np.delete(y_train,i)
+            if (yv == labelsdataset[0]):
+                typeclass0.append(kind_sample(xv,yv,xm,ym,5))
+            else:
+                typeclass1.append(kind_sample(xv,yv,xm,ym,5))
+
+        ksample=[]
+
+        ksample.append((np.array(typeclass0) == 0).sum())
+        ksample.append((np.array(typeclass0) == 1).sum())
+        ksample.append((np.array(typeclass0) == 2).sum())
+        ksample.append((np.array(typeclass0) == 3).sum())
+        ksample.append(len(typeclass0))
         #print(ksample)
 
-    ksample.append(ksample[0]/ksample[4])
-    ksample.append(ksample[1]/ksample[4])
-    ksample.append(ksample[2]/ksample[4])
-    ksample.append(ksample[3]/ksample[4])
+        ksample.append(ksample[0]/ksample[4])
+        ksample.append(ksample[1]/ksample[4])
+        ksample.append(ksample[2]/ksample[4])
+        ksample.append(ksample[3]/ksample[4])
 
-    ksample.append((np.array(typeclass1) == 0).sum())
-    ksample.append((np.array(typeclass1) == 1).sum())
-    ksample.append((np.array(typeclass1) == 2).sum())
-    ksample.append((np.array(typeclass1) == 3).sum())
-    ksample.append(len(typeclass1))
+        ksample.append((np.array(typeclass1) == 0).sum())
+        ksample.append((np.array(typeclass1) == 1).sum())
+        ksample.append((np.array(typeclass1) == 2).sum())
+        ksample.append((np.array(typeclass1) == 3).sum())
+        ksample.append(len(typeclass1))
 
         #print(ksample)
 
-    ksample.append(ksample[9]/ksample[13])
-    ksample.append(ksample[10]/ksample[13])
-    ksample.append(ksample[11]/ksample[13])
-    ksample.append(ksample[12]/ksample[13])
-    print(ksample)
+        ksample.append(ksample[9]/ksample[13])
+        ksample.append(ksample[10]/ksample[13])
+        ksample.append(ksample[11]/ksample[13])
+        ksample.append(ksample[12]/ksample[13])
+        print(ksample)
 
-    for listelement in ksample:
-        textfile.write(str(listelement) + " ")
-    textfile.write("\n")
+        for listelement in ksample:
+            textfile.write(str(listelement) + " ")
+        textfile.write("\n")
+
+        print('-----------Processing test dataset------------')
     
+        typeclass0=[]
+        typeclass1=[]
+
+        labelsdataset=get_uniquelabels(y_test)
+        for i in range(len(y_test)):
+            xv = X_test[i,:]
+            yv = y_test[i]
+            xm =np.delete(X_test,i,0)
+            ym = np.delete(y_test,i)
+            if (yv == labelsdataset[0]):
+                typeclass0.append(kind_sample(xv,yv,xm,ym,5))
+            else:
+                typeclass1.append(kind_sample(xv,yv,xm,ym,5))
+        
+        ksample=[]
+        ksample.append((np.array(typeclass0) == 0).sum())
+        ksample.append((np.array(typeclass0) == 1).sum())
+        ksample.append((np.array(typeclass0) == 2).sum())
+        ksample.append((np.array(typeclass0) == 3).sum())
+        ksample.append(len(typeclass0))
+        #print(ksample)
+
+        ksample.append(ksample[0]/ksample[4])
+        ksample.append(ksample[1]/ksample[4])
+        ksample.append(ksample[2]/ksample[4])
+        ksample.append(ksample[3]/ksample[4])
+
+        ksample.append((np.array(typeclass1) == 0).sum())
+        ksample.append((np.array(typeclass1) == 1).sum())
+        ksample.append((np.array(typeclass1) == 2).sum())
+        ksample.append((np.array(typeclass1) == 3).sum())
+        ksample.append(len(typeclass1))
+
+        #print(ksample)
+
+        ksample.append(ksample[9]/ksample[13])
+        ksample.append(ksample[10]/ksample[13])
+        ksample.append(ksample[11]/ksample[13])
+        ksample.append(ksample[12]/ksample[13])
+        print(ksample)
+
+        for listelement in ksample:
+            textfile2.write(str(listelement) + " ")
+        textfile2.write("\n")
+
     textfile.close()
+    textfile2.close()
 
 
 
-    ficherotxt = 'datasets/'+elements+'-8020-holdout-tst.txt'
-    if os.path.exists(ficherotxt):
-        os.remove(ficherotxt)
+   
 
-    textfile = open(ficherotxt, "a")
 
-    typeclass0=[]
-    typeclass1=[]
+    
 
-    labelsdataset=get_uniquelabels(y_test)
+    
 
-    for i in range(len(y_test)):
-        xv = X_test[i,:]
-        yv = y_test[i]
-        xm =np.delete(X_test,i,0)
-        ym = np.delete(y_test,i)
-        if (yv == labelsdataset[0]):
-            typeclass0.append(kind_sample(xv,yv,xm,ym,5))
-        else:
-            typeclass1.append(kind_sample(xv,yv,xm,ym,5))
+    
 
-    ksample=[]
-
-    ksample.append((np.array(typeclass0) == 0).sum())
-    ksample.append((np.array(typeclass0) == 1).sum())
-    ksample.append((np.array(typeclass0) == 2).sum())
-    ksample.append((np.array(typeclass0) == 3).sum())
-    ksample.append(len(typeclass0))
-        #print(ksample)
-
-    ksample.append(ksample[0]/ksample[4])
-    ksample.append(ksample[1]/ksample[4])
-    ksample.append(ksample[2]/ksample[4])
-    ksample.append(ksample[3]/ksample[4])
-
-    ksample.append((np.array(typeclass1) == 0).sum())
-    ksample.append((np.array(typeclass1) == 1).sum())
-    ksample.append((np.array(typeclass1) == 2).sum())
-    ksample.append((np.array(typeclass1) == 3).sum())
-    ksample.append(len(typeclass1))
-
-        #print(ksample)
-
-    ksample.append(ksample[9]/ksample[13])
-    ksample.append(ksample[10]/ksample[13])
-    ksample.append(ksample[11]/ksample[13])
-    ksample.append(ksample[12]/ksample[13])
-    print(ksample)
-
-    for listelement in ksample:
-        textfile.write(str(listelement) + " ")
-    textfile.write("\n")
+   
     
     textfile.close()
