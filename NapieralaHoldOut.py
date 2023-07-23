@@ -184,18 +184,3 @@ for elements in fname:
 
     textfile.close()
     textfile2.close()
-
-
-
-   
-
-
-    
-
-    
-
-    
-
-   
-    
-    textfile.close()
