@@ -64,13 +64,13 @@ for elements in fname:
     
     print(fichero)
 
-    ficherotxt = 'datasets/'+elements+'-8020-holdout-tra.txt'
+    ficherotxt = 'datasets/'+elements+'-8020-holdout5-tra.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
     textfile = open(ficherotxt, "a")
 
-    ficherotxt2 = 'datasets/'+elements+'-8020-holdout-tst.txt'
+    ficherotxt2 = 'datasets/'+elements+'-8020-holdout5-tst.txt'
     if os.path.exists(ficherotxt2):
         os.remove(ficherotxt2)
 
