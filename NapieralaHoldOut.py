@@ -64,13 +64,13 @@ for elements in fname:
     
     print(fichero)
 
-    ficherotxt = 'datasets/'+elements+'-8020-holdout5-tra.txt'
+    ficherotxt = 'datasets/'+elements+'-5050-holdout5-tra.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
     textfile = open(ficherotxt, "a")
 
-    ficherotxt2 = 'datasets/'+elements+'-8020-holdout5-tst.txt'
+    ficherotxt2 = 'datasets/'+elements+'-5050-holdout5-tst.txt'
     if os.path.exists(ficherotxt2):
         os.remove(ficherotxt2)
 
@@ -84,7 +84,7 @@ for elements in fname:
 
     for folds in range(1,(nfolds+1)):
         
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=rs+folds, stratify=y)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=rs+folds, stratify=y)
         
 
         #Procesar el conjunto de entrenamiento
