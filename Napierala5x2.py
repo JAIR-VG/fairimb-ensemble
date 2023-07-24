@@ -56,7 +56,7 @@ nfolds=5
 
 for element in fname:
     print(element)
-
+    #Para usar el test se debe de cambiar "tra" por "tst"
     ficherotxt = 'datasets/'+element+'-5x2-tst.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
@@ -64,6 +64,7 @@ for element in fname:
     textfile = open(ficherotxt, "a")
 
     for folds in range(1,(nfolds+1)):
+        #Para usar el test se debe de cambiar "tra" por "tst"
         fichero = 'datasets/'+element+'/'+element+'-5x2-'+str(folds)+'tst.prn'
         print(fichero)
         

@@ -56,7 +56,8 @@ nfolds=5
 
 for element in fname:
     print(element)
-
+    #Para usar el test se debe de cambiar "tra" por "tst"
+    #para procesar cv se debe de quitar dobscv. Revisar el archivo original
     ficherotxt = 'datasets/'+element+'-'+str(nfolds)+'dobscv-tra.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
@@ -64,6 +65,7 @@ for element in fname:
     textfile = open(ficherotxt, "a")
 
     for folds in range(1,(nfolds+1)):
+        #Para usar el test se debe de cambiar "tra" por "tst"
         fichero = 'datasets/'+element+'/'+element+'-'+str(nfolds)+'dobscv-'+str(folds)+'tra.prn'
         print(fichero)
         
