@@ -1,4 +1,9 @@
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn import svm
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neural_network import MLPClassifier
+
 import numpy as np
 
 from sklearn.metrics import recall_score
@@ -30,7 +35,7 @@ nfolds=5
 
 for folds in range(1,(nfolds+1)):
     #ftra = 'datasets/'+element+'/'+element+'-5x2-'+str(folds)+'tst.prn'
-    #ftra = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-5x2-'+str(folds)+'tra.prn'
+   # ftra = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-5x2-'+str(folds)+'tra.prn'
     #ftst = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-5x2-'+str(folds)+'tst.prn'
 
     
@@ -42,7 +47,15 @@ for folds in range(1,(nfolds+1)):
     
     Xtst,ytst = load_dataset(ftst)
 
-    tree = DecisionTreeClassifier(random_state=0).fit(Xtra, ytra)
+   # tree = DecisionTreeClassifier(random_state=0).fit(Xtra, ytra)
+
+   # tree = LogisticRegression(random_state=0).fit(Xtra, ytra)
+
+    tree = MLPClassifier(random_state=1, max_iter=1000).fit(Xtra,ytra)
+
+    #tree.fit(Xtra,ytra)
+
+    #ree = GaussianNB().fit(Xtra, ytra)
 
     ypred = tree.predict(Xtst)
 
@@ -50,4 +63,6 @@ for folds in range(1,(nfolds+1)):
 
     ypred = tree.predict(Xtra)
 
-    print(recall_score(ytra,ypred,average = None))
+    tp1,tp2=recall_score(ytra,ypred,average = None)
+
+    print(tp1,tp2)
