@@ -1,12 +1,11 @@
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn import svm
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neural_network import MLPClassifier
-
+from imbens.ensemble import EasyEnsembleClassifier
 import numpy as np
-
 from sklearn.metrics import recall_score
+
+import matplotlib.pyplot as plt
+
+from sklearn.inspection import DecisionBoundaryDisplay
 
 def load_dataset(nfile):
     df = np.loadtxt(nfile,dtype='str')
@@ -35,13 +34,17 @@ nfolds=5
 
 for folds in range(1,(nfolds+1)):
     #ftra = 'datasets/'+element+'/'+element+'-5x2-'+str(folds)+'tst.prn'
-   # ftra = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-5x2-'+str(folds)+'tra.prn'
-    #ftst = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-5x2-'+str(folds)+'tst.prn'
+   # ftra = 'datasets/03subcl5-600-5-30-bi/03subcl5-600-5-30-bi-5x2-'+str(folds)+'tra.prn'
+   # ftst = 'datasets/03subcl5-600-5-30-bi/03subcl5-600-5-30-bi-5x2-'+str(folds)+'tst.prn'
+
+    #ftra = 'datasets/03subcl5-600-5-30-bi/03subcl5-600-5-30-bi-5-'+str(folds)+'tra.prn'
+    #ftst = 'datasets/03subcl5-600-5-30-bi/03subcl5-600-5-30-bi-5-'+str(folds)+'tst.prn'
+   
 
     
 
-    ftra = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-'+str(nfolds)+'dobscv-'+str(folds)+'tra.prn'
-    ftst = 'datasets/03subcl5-600-5-50-bi/03subcl5-600-5-50-bi-'+str(nfolds)+'dobscv-'+str(folds)+'tst.prn'
+    ftra = 'datasets/03subcl5-600-5-30-bi/03subcl5-600-5-30-bi-'+str(nfolds)+'dobscv-'+str(folds)+'tra.prn'
+    ftst = 'datasets/03subcl5-600-5-30-bi/03subcl5-600-5-30-bi-'+str(nfolds)+'dobscv-'+str(folds)+'tst.prn'
 
     Xtra,ytra = load_dataset(ftra)
     
@@ -51,11 +54,17 @@ for folds in range(1,(nfolds+1)):
 
    # tree = LogisticRegression(random_state=0).fit(Xtra, ytra)
 
-    tree = MLPClassifier(random_state=1, max_iter=1000).fit(Xtra,ytra)
+    #tree = MLPClassifier(random_state=1, max_iter=1000).fit(Xtra,ytra)
 
     #tree.fit(Xtra,ytra)
 
     #ree = GaussianNB().fit(Xtra, ytra)
+
+    #tree = svm.SVC(kernel="linear", class_weight={1:10})
+
+    tree =  EasyEnsembleClassifier(random_state=0, n_estimators=100)
+
+    tree.fit(Xtra,ytra)
 
     ypred = tree.predict(Xtst)
 
