@@ -1,6 +1,7 @@
 from sklearn import neighbors
 import numpy as np
 import math
+import os
 from sklearn.metrics import recall_score, precision_score, f1_score, accuracy_score
 
 
@@ -18,7 +19,7 @@ fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03
         'paw02a-800-7-60-bi', 'paw02a-800-7-70-bi']
 
 
-nfolds=5
+nfolds=10
 k_neighbors=1
 
 for element in fname:
@@ -51,7 +52,20 @@ for element in fname:
         rmat[i][5]=acc
         i=i+1
    # print(rmat)
-    print(np.mean(rmat,axis=0))
+    #print(np.mean(rmat,axis=0))
+    avgrmat = np.mean(rmat,axis=0)
+    ficherotxt = 'datasets/10foldcv/'+element+'-'+str(nfolds)+'-'+str(k_neighbors)+'nn.avg.txt'
+    if os.path.exists(ficherotxt):
+        os.remove(ficherotxt)
+
+    textfile = open(ficherotxt, "a")
+    for listelement in avgrmat:
+        textfile.write(str(listelement) + " ")
+    textfile.write("\n")
+    
+    textfile.close()
+
+
         
 
 
