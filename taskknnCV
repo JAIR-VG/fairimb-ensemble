@@ -50,7 +50,7 @@ for element in fname:
         rmat[i][4]=gmean
         rmat[i][5]=acc
         i=i+1
-    print(rmat)
+   # print(rmat)
     print(np.mean(rmat,axis=0))
         
 
