@@ -19,8 +19,8 @@ fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03
         'paw02a-800-7-60-bi', 'paw02a-800-7-70-bi']
 
 
-nfolds=10
-k_neighbors=1
+nfolds=5
+k_neighbors=3
 
 for element in fname:
     rmat = np.zeros((nfolds,6))
@@ -54,7 +54,7 @@ for element in fname:
    # print(rmat)
     #print(np.mean(rmat,axis=0))
     avgrmat = np.mean(rmat,axis=0)
-    ficherotxt = 'datasets/10foldcv/'+element+'-'+str(nfolds)+'-'+str(k_neighbors)+'nn.avg.txt'
+    ficherotxt = 'datasets/5foldcv/'+element+'-'+str(nfolds)+'-'+str(k_neighbors)+'nn.avg.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
@@ -64,8 +64,3 @@ for element in fname:
     textfile.write("\n")
     
     textfile.close()
-
-
-        
-
-
