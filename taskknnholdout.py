@@ -56,7 +56,7 @@ for element in fname:
         rmat[i][5]=acc
         i=i+1
     avgrmat = np.mean(rmat,axis=0)
-    ficherotxt = 'datasets/Holdout8020/'+element+'-'+str(nfolds)+'5050-'+str(k_neighbors)+'nn.avg.txt'
+    ficherotxt = 'datasets/Holdout8020/'+element+'-'+str(nfolds)+'8020-'+str(k_neighbors)+'nn.avg.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
