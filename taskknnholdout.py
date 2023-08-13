@@ -21,7 +21,7 @@ fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03
 
 
 nfolds=5
-k_neighbors=1
+k_neighbors=3
 
 for element in fname:
     
