@@ -1,4 +1,4 @@
-from sklearn import neighbors
+from sklearn import neighbors,tree
 import numpy as np
 import math
 import os
@@ -20,7 +20,7 @@ fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03
         'paw02a-800-7-60-bi', 'paw02a-800-7-70-bi']
 
 
-nfolds=5
+nfolds=100
 k_neighbors=3
 
 for element in fname:
@@ -35,10 +35,10 @@ for element in fname:
     i =0
     for folds in range(1,(nfolds+1)):
 
-        X_tra, X_tst, y_tra, y_tst = train_test_split(X, y, test_size=0.2, random_state=rs+folds, stratify=y)
+        X_tra, X_tst, y_tra, y_tst = train_test_split(X, y, test_size=0.10, random_state=rs+folds, stratify=y)
         
         clf = neighbors.KNeighborsClassifier(k_neighbors,weights='uniform')
-
+        #clf = tree.DecisionTreeClassifier()
         clf.fit(X_tra,y_tra)
 
         ypred = clf.predict(X_tst)
@@ -56,7 +56,8 @@ for element in fname:
         rmat[i][5]=acc
         i=i+1
     avgrmat = np.mean(rmat,axis=0)
-    ficherotxt = 'datasets/Holdout8020/'+element+'-'+str(nfolds)+'8020-'+str(k_neighbors)+'nn.avg.txt'
+    #ficherotxt = 'datasets/Holdout5050/'+element+'-'+str(nfolds)+'-5050-dt.avg.txt'
+    ficherotxt = 'datasets/Bias/'+element+'-'+str(nfolds)+'-3NN-100-9010-dt.avg.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
