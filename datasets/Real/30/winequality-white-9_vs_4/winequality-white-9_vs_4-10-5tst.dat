@@ -1,0 +1,33 @@
+@relation winequality-white-9_vs_4
+@attribute FixedAcidity real [3.8, 14.2]
+@attribute VolatileAcidity real [0.08, 1.1]
+@attribute CitricAcid real [0.0, 1.66]
+@attribute ResidualSugar real [0.6, 65.8]
+@attribute Chlorides real [0.009, 0.346]
+@attribute FreeSulfurDioxide real [2.0, 289.0]
+@attribute TotalSulfurDioxide real [9.0, 440.0]
+@attribute Density real [0.98711, 1.03898]
+@attribute PH real [2.72, 3.82]
+@attribute Sulphates real [0.22, 1.08]
+@attribute Alcohol real [8.0, 14.2]
+@attribute Class {positive, negative}
+@inputs FixedAcidity, VolatileAcidity, CitricAcid, ResidualSugar, Chlorides, FreeSulfurDioxide, TotalSulfurDioxide, Density, PH, Sulphates, Alcohol
+@outputs Class
+@data
+6.2, 0.45, 0.26, 4.4, 0.063, 63.0, 206.0, 0.994, 3.27, 0.52, 9.8, negative
+7.6, 0.48, 0.37, 0.8, 0.037, 4.0, 100.0, 0.9902, 3.03, 0.39, 11.4, negative
+6.8, 0.29, 0.16, 1.4, 0.038, 122.5, 234.5, 0.9922, 3.15, 0.47, 10.0, negative
+6.0, 0.395, 0.0, 1.4, 0.042, 7.0, 55.0, 0.99135, 3.37, 0.38, 11.2, negative
+8.4, 0.19, 0.42, 1.6, 0.047, 9.0, 101.0, 0.994, 3.06, 0.65, 11.1, negative
+6.8, 0.705, 0.25, 3.2, 0.048, 10.0, 57.0, 0.996, 3.36, 0.52, 9.5, negative
+7.3, 0.49, 0.32, 5.2, 0.043, 18.0, 104.0, 0.9952, 3.24, 0.45, 10.7, negative
+6.9, 0.32, 0.16, 1.4, 0.051, 15.0, 96.0, 0.994, 3.22, 0.38, 9.5, negative
+6.3, 0.39, 0.24, 6.9, 0.069, 9.0, 117.0, 0.9942, 3.15, 0.35, 10.2, negative
+7.1, 0.26, 0.49, 2.2, 0.032, 31.0, 113.0, 0.9903, 3.37, 0.42, 12.9, positive
+9.0, 0.43, 0.3, 1.5, 0.05, 7.0, 175.0, 0.9951, 3.11, 0.45, 9.7, negative
+8.0, 0.16, 0.36, 1.5, 0.033, 14.0, 122.0, 0.9941, 3.2, 0.39, 10.3, negative
+6.0, 0.33, 0.18, 3.0, 0.036, 5.0, 85.0, 0.99125, 3.28, 0.4, 11.5, negative
+6.4, 0.27, 0.19, 1.9, 0.085, 21.0, 196.0, 0.99516, 3.49, 0.64, 9.5, negative
+7.6, 0.31, 0.23, 12.7, 0.054, 20.0, 139.0, 0.99836, 3.16, 0.5, 9.7, negative
+7.3, 0.38, 0.23, 6.5, 0.05, 18.0, 102.0, 0.99304, 3.1, 0.55, 11.2, negative
+6.1, 1.1, 0.16, 4.4, 0.033, 8.0, 109.0, 0.99058, 3.35, 0.47, 12.4, negative
