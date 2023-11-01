@@ -1,0 +1,69 @@
+@relation  haberman
+@attribute Age integer[30,83]
+@attribute Year integer[58,69]
+@attribute Positive integer[0,52]
+@attribute Class{positive,negative}
+@inputs Age,Year,Positive
+@outputs Class
+@data
+54, 68, 7, positive
+46, 65, 20, positive
+70, 58, 0, positive
+55, 68, 15, positive
+61, 65, 0, positive
+49, 64, 10, positive
+50, 63, 13, positive
+34, 66, 9, positive
+41, 64, 0, positive
+65, 58, 0, positive
+65, 66, 15, positive
+74, 65, 3, positive
+54, 65, 23, positive
+44, 64, 6, positive
+47, 62, 0, positive
+52, 62, 3, positive
+73, 62, 0, negative
+55, 58, 0, negative
+64, 66, 0, negative
+49, 62, 1, negative
+58, 59, 0, negative
+38, 62, 3, negative
+69, 65, 0, negative
+55, 66, 0, negative
+56, 66, 2, negative
+48, 64, 0, negative
+57, 63, 0, negative
+52, 60, 5, negative
+64, 61, 0, negative
+47, 58, 3, negative
+61, 64, 0, negative
+63, 61, 28, negative
+48, 62, 2, negative
+38, 66, 0, negative
+71, 68, 2, negative
+38, 60, 1, negative
+66, 58, 0, negative
+53, 60, 1, negative
+46, 62, 0, negative
+76, 67, 0, negative
+57, 64, 9, negative
+37, 63, 0, negative
+42, 60, 1, negative
+43, 60, 0, negative
+50, 61, 6, negative
+62, 62, 6, negative
+30, 64, 1, negative
+50, 59, 0, negative
+59, 64, 0, negative
+66, 68, 0, negative
+43, 66, 4, negative
+52, 68, 0, negative
+38, 59, 2, negative
+34, 61, 10, negative
+41, 59, 8, negative
+44, 67, 16, negative
+62, 66, 0, negative
+40, 58, 2, negative
+59, 67, 3, negative
+45, 68, 0, negative
+54, 60, 3, negative

@@ -1,0 +1,14 @@
+@relation shuttle-2_vs_5
+@attribute A1 integer [27, 126]
+@attribute A2 integer [-4821, 5075]
+@attribute A3 integer [21, 149]
+@attribute A4 integer [-3939, 3830]
+@attribute A5 integer [-188, 436]
+@attribute A6 integer [-26739, 15164]
+@attribute A7 integer [-48, 105]
+@attribute A8 integer [-353, 270]
+@attribute A9 integer [-356, 266]
+@attribute Class {positive, negative}
+@inputs A1, A2, A3, A4, A5, A6, A7, A8, A9
+@outputs Class
+@data
