@@ -9,11 +9,17 @@ dtst=( ecoli-0_vs_1 glass0 glass1 habermanImb iris0 pimaImb vehicle1 vehicle2 ve
 
 
 for i in "${dtst[@]}"; do
+    for (( j = 1; j <= 5; j++))
+    do
+        ftra=$fichero"/"$i"/"$i"-5x2-"$j"tra.dat"
 
-   ftra=$fichero"/"$i"/"$i".dat"
+	echo "Procesando $ftra"
 
-   echo "Procesando $ftra"
+	./keeltoprn.sh $ftra
 
-   ./keeltoprn.sh $ftra
+        ftst=$fichero"/"$i"/"$i"-5x2-"$j"tst.dat"
+	echo "Procesando $ftst"
+	./keeltoprn.sh $ftst
+    done
 done
 
