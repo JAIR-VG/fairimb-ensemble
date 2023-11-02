@@ -47,11 +47,11 @@ def kind_sample(xvector, yvector,xmatrix,ymatrix,kvalue):
 
 #fname=['ecoli-0_vs_1', 'glass0', 'glass1', 'habermanImb', 'iris0', 'pimaImb', 'vehicle1', 'vehicle2', 'vehicle3', 'wisconsinImb', 'yeast1']
 
-fname=['ecoli-0-1-3-7_vs_2-6', 'poker-8_vs_6', 'poker-8-9_vs_5', 'poker-8-9_vs_6', 'shuttle-2_vs_5', 'winequality-red-3_vs_5',
-       'winequality-red-8_vs_6', 'winequality-red-8_vs_6-7','winequality-white-3-9_vs_5','winequality-white-9_vs_4', 'yeast-1-2-8-9_vs_7',
-        'yeast4','yeast6']
+#fname=['ecoli-0-1-3-7_vs_2-6', 'poker-8_vs_6', 'poker-8-9_vs_5', 'poker-8-9_vs_6', 'shuttle-2_vs_5', 'winequality-red-3_vs_5',
+ #      'winequality-red-8_vs_6', 'winequality-red-8_vs_6-7','winequality-white-3-9_vs_5','winequality-white-9_vs_4', 'yeast-1-2-8-9_vs_7',
+  #      'yeast4','yeast6']
 
-
+fname=['winequality-white-3_vs_7']
 
 nfolds=5
 tipeir=30
@@ -63,16 +63,16 @@ for elements in fname:
     #fichero = 'datasets/'+elements+'/'+elements+'.prn'
     
     print(fichero)
-    ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-5050-holdout5-tra.txt'
-    #ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-8020-holdout5-tra.txt'
+    #ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-5050-holdout5-tra.txt'
+    ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-8020-holdout5-tra.txt'
     #ficherotxt = 'datasets/'+elements+'-5050-holdout5-tra.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
     textfile = open(ficherotxt, "a")
 
-    ficherotxt2 = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-5050-holdout5-tst.txt'
-    #ficherotxt2 = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-8020-holdout5-tst.txt'
+    #ficherotxt2 = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-5050-holdout5-tst.txt'
+    ficherotxt2 = 'datasets/Real/'+str(tipeir)+'/'+elements+'/'+elements+'-8020-holdout5-tst.txt'
     #ficherotxt2 = 'datasets/'+elements+'-5050-holdout5-tst.txt'
     if os.path.exists(ficherotxt2):
         os.remove(ficherotxt2)
@@ -87,7 +87,7 @@ for elements in fname:
 
     for folds in range(1,(nfolds+1)):
         
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=rs+folds, stratify=y)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=rs+folds, stratify=y)
         
 
         #Procesar el conjunto de entrenamiento
