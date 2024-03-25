@@ -47,10 +47,11 @@ def kind_sample(xvector, yvector,xmatrix,ymatrix,kvalue):
 #       'winequality-red-8_vs_6', 'winequality-red-8_vs_6-7','winequality-white-3-9_vs_5','winequality-white-9_vs_4', 'yeast-1-2-8-9_vs_7',
  #       'yeast4','yeast6']
 
-fname=['winequality-white-3_vs_7']
+fname=['ecoli-0_vs_1']
 
 nfolds=10
-tipeir=30
+#tipeir=30
+tipeir=3
 
 
 for element in fname:

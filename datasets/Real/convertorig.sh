@@ -7,7 +7,7 @@ fichero=$1
 
 #dtst=( ecoli-0-1-3-7_vs_2-6 poker-8_vs_6 poker-8-9_vs_5 poker-8-9_vs_6 shuttle-2_vs_5 winequality-red-3_vs_5 winequality-red-8_vs_6 winequality-red-8_vs_6-7 winequality-white-3-9_vs_5 winequality-white-9_vs_4 yeast-1-2-8-9_vs_7 yeast4 yeast6 )
 
-dtst=( winequality-white-3_vs_7 )
+dtst=( vehicle2 )
 
 for i in "${dtst[@]}"; do
 

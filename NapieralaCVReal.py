@@ -47,18 +47,18 @@ def kind_sample(xvector, yvector,xmatrix,ymatrix,kvalue):
 #       'winequality-red-8_vs_6', 'winequality-red-8_vs_6-7','winequality-white-3-9_vs_5','winequality-white-9_vs_4', 'yeast-1-2-8-9_vs_7',
 #        'yeast4','yeast6']
 
-fname=['winequality-white-3_vs_7', 'yeast4']
+fname=['ecoli-0_vs_1']
 
 nfolds=5
-tipeir=30
-
+#tipeir=30
+tipeir=3
 
 for element in fname:
     print(element)
     #Para usar el test se debe de cambiar "tra" por "tst"
     #para procesar cv se debe de quitar dobscv. Revisar el archivo original
-    ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-tra.txt'
-   # ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-tst.txt'
+    #ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-tra.txt'
+    ficherotxt = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-tst.txt'
     #ficherotxt = 'datasets/'+element+'-'+str(nfolds)+'dobscv-tra.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
@@ -67,8 +67,8 @@ for element in fname:
 
     for folds in range(1,(nfolds+1)):
         #Para usar el test se debe de cambiar "tra" por "tst"
-        fichero = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-'+str(folds)+'tra.prn'
-        #fichero = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-'+str(folds)+'tst.prn'
+        #fichero = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-'+str(folds)+'tra.prn'
+        fichero = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-'+str(nfolds)+'-'+str(folds)+'tst.prn'
         #fichero = 'datasets/'+element+'/'+element+'-'+str(nfolds)+'dobscv-'+str(folds)+'tra.prn'
         print(fichero)
         
