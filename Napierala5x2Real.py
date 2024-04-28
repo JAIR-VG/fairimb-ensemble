@@ -75,7 +75,7 @@ for element in fname:
         #fichero = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-5x2-'+str(folds)+'tra.prn'
         fichero = 'datasets/Real/'+str(tipeir)+'/'+element+'/'+element+'-5x2-'+str(folds)+'tst.prn'
         print(fichero)
-        
+         
         X,y = load_dataset(fichero)
         
         typeclass0=[]
