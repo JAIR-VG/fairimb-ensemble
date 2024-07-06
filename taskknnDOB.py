@@ -1,4 +1,5 @@
-from sklearn import neighbors, tree
+#from sklearn import neighbors, tree
+from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 import math
 import os
@@ -19,7 +20,7 @@ fname=['03subcl5-600-5-0-bi','03subcl5-600-5-30-bi', '03subcl5-600-5-50-bi', '03
         'paw02a-800-7-60-bi', 'paw02a-800-7-70-bi']
 
 
-nfolds=5
+nfolds=10
 #k_neighbors=3
 
 for element in fname:
@@ -34,7 +35,8 @@ for element in fname:
         X_tst,y_tst = load_dataset(ftst)
 
         #clf = neighbors.KNeighborsClassifier(k_neighbors,weights='uniform')
-        clf = tree.DecisionTreeClassifier()
+       # clf = tree.DecisionTreeClassifier()
+        clf = RandomForestClassifier(random_state=0)
         clf.fit(X_tra,y_tra)
 
         ypred = clf.predict(X_tst)
@@ -54,7 +56,7 @@ for element in fname:
    # print(rmat)
     #print(np.mean(rmat,axis=0))
     avgrmat = np.mean(rmat,axis=0)
-    ficherotxt = 'datasets/5dobscv/'+element+'-'+str(nfolds)+'-dobscv-dt.avg.txt'
+    ficherotxt = 'datasets/10dobscv/'+element+'-'+str(nfolds)+'-dobscv-RF.avg.txt'
     if os.path.exists(ficherotxt):
         os.remove(ficherotxt)
 
